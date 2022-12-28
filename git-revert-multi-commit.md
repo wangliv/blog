@@ -21,6 +21,6 @@ git diff --name-status origin/master..HEAD|awk '{if($1=="A") print $2}'|xargs rm
 
 将修改内容提交，产生一个新的commitID,就相当于单次revert掉了之前分支上所有的commit.
 ``` bash
-git add 
-git commit
+git add .
+git commit -m "revert commit"
 ```
