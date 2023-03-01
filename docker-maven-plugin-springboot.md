@@ -33,13 +33,13 @@ date:  2023-03-02
 ```
 
 2. 执行maven打包命令，打包同时生成Docker镜像文件
-``` cmd
+``` bash
 mvn clean package docker:build
 ```
 
 3. 运行docker容器
 
-``` cmd
+``` bash
 docker run -d --name demo9 -p 8888:8080 wangli/demo6:v2
 ```
 
@@ -82,7 +82,7 @@ ENTRYPOINT  ["java","-jar","/app.jar"]
 
 
 3. 执行maven打包命令,即可生成镜像
-``` cmd
+``` bash
 mvn clean package docker:build
 
 ```
