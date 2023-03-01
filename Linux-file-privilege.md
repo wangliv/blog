@@ -68,7 +68,7 @@ cat /etc/group|grep 组名
 groups
 ```
 
-## 把一个目录或文件赋权给其他用户的方法
+### 把一个目录或文件赋权给其他用户的方法
 ``` bash
 chown -R test:test <dir>        #修改目录所有者组
 usermod -a -G <groupName> test  #组有权限 
