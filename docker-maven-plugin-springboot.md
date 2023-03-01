@@ -6,8 +6,6 @@ date:  2023-03-02
 > 
 > 开发机器需要安装docker
 
-![项目][projectlayout]
-
 ### 方式一
 
 
@@ -35,13 +33,13 @@ date:  2023-03-02
 ```
 
 2. 执行maven打包命令，打包同时生成Docker镜像文件
-```cmd
+``` cmd
 mvn clean package docker:build
 ```
 
 3. 运行docker容器
 
-```cmd
+``` cmd
 docker run -d --name demo9 -p 8888:8080 wangli/demo6:v2
 ```
 
@@ -51,7 +49,7 @@ docker run -d --name demo9 -p 8888:8080 wangli/demo6:v2
 
 1. 创建src/main/docker/Dockerfile文件,内容如下
 
-```bash
+``` bash
 FROM ascdc/jdk8
 VOLUME /tmp
 ADD demo6-0.0.1-SNAPSHOT.jar /app.jar
@@ -63,7 +61,7 @@ ENTRYPOINT  ["java","-jar","/app.jar"]
 
 2. 修改pom.xml文件配置如下
 
-```xml
+``` xml
 <plugin>
     <groupId>com.spotify</groupId>
     <artifactId>docker-maven-plugin</artifactId>
@@ -84,7 +82,7 @@ ENTRYPOINT  ["java","-jar","/app.jar"]
 
 
 3. 执行maven打包命令,即可生成镜像
-```cmd
+``` cmd
 mvn clean package docker:build
 
 ```
@@ -99,7 +97,7 @@ mvn clean package docker:build
 
 2. 修改pom.xml文件配置如下
 
-```xml
+``` xml
 <plugin>
     <groupId>com.spotify</groupId>
     <artifactId>docker-maven-plugin</artifactId>
@@ -132,8 +130,6 @@ mvn clean package docker:build
 
 3. 执行mvn clen package 即会自动打包项目并创建docker镜像
 
-```bash
+``` bash
 mvn clean package
 ```
-
-[projectlayout]data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB38AAAO3CAIAAACstxmDAAAACXBIWXMAABYlAAAWJQFJUiTwAAAgAElEQVR42uy9CXsTd5qv3R/kfc876QQINsZ4k23Z2i3v+4ptvC/gBYzBNhjvBttAMCHB2YEsBIeddMgkE6e75yxzznXm9Jwz052e9Qv0+RhvlUpLqTaVNq/377ovLqtUqir9q1RCtx499atChwsAAAAAAAAAAAAAILH8iiEAAAAAAAAAAAAAAOwzAAAAAAAAAAAAAGCfAQAAAAAAAAAAAAD7DAAAAAAAAAAAAACAfQYAAAAAAAAAAAAA7DMAAAAAAAAAAAAAYJ8BAAAAAAAAAAAAALDPAAAAAAAAAAAAALBH7LO1afHR1tbP4dnaXGywO4V7GxY2hZuPFlr8M49sCDfvjjiTvcXGW6X9kPBtU2x5ohja2NIbAWmbtzZGk7f2OAdTc7OFZ7S1tTnfFO8+3VVPOfaxsrfMb4YOPGF3DtnjGplte8moj1LpUEzw+OzE04n5jBHDdkpDtw+O5ODOMn8KjfiiNrP34z9CErUrk31yiHNsd+QlZvL9y+T5UHlv3Ccczc2T1qJ+k0r4G+6uOrlJz07zGQlP1vxb9q49YwMAAAAAwEG0z3of23bWPkf1YTKiffZp1sTIRM2P2dIapQ3YnfZZ8+nvZvuckF0
