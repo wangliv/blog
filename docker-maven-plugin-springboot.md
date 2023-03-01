@@ -33,6 +33,7 @@ date:  2023-03-02
 ```
 
 2. 执行maven打包命令，打包同时生成Docker镜像文件
+
 ``` bash
 mvn clean package docker:build
 ```
@@ -82,6 +83,7 @@ ENTRYPOINT  ["java","-jar","/app.jar"]
 
 
 3. 执行maven打包命令,即可生成镜像
+
 ``` bash
 mvn clean package docker:build
 
