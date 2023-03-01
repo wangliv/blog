@@ -1,5 +1,6 @@
 ---
 title: git单次操作revert分支所有修改内容
+date:  2023-01-02
 ---
 
 > 假设分支名称：Feature01 基础分支：master
