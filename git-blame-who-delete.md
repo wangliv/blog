@@ -13,7 +13,7 @@ The report does not tell you anything about lines which have been deleted or rep
 
 ``` bash
 git log -S  "XXXXX"  -p  [--]  <fileName> 
-````
+```
 
 意思是在所有的提交内容中查询包含"XXXXX"的提交记录，至少查询到两个一个是新增时commitId,另一个是删除时的commitId 。通过查询出来的commitId，再使用git show commitId 查看对应某次commit的具体内容，来确定是否是这次删除了目标行。
 
