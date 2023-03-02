@@ -1,6 +1,6 @@
 ---
 title: 打包SpringBoot项目为docker镜像
-date:  2023-03-02 22:14:28
+date:  2023-03-02 13:14:28
 ---
 > 使用docker-maven-plugin插件来实现打包SpringBoot项目为docker镜像
 > 
@@ -86,7 +86,6 @@ ENTRYPOINT  ["java","-jar","/app.jar"]
 
 ``` bash
 mvn clean package docker:build
-
 ```
 
 ### 方式三
