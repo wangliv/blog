@@ -59,6 +59,8 @@ git config --global user.name "Your Name"
 git config --global user.email "email@example.com" （配置文件信息存放在.git/config里）
 ```
 
+### 远程仓库关联
+
 先有本地库，后有远程库
 
 生成ssh key: ssh-keygen -t rsa -C "youremail@example.com"
@@ -75,25 +77,21 @@ git config --global user.email "email@example.com" （配置文件信息存放�
 
 进入系统目录 git clone git@xxx/skills.git  克隆一个本地仓库
 
-
-忽略配置文件
+### 忽略配置文件
 
 在git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
 不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：https://github.com/github/gitignore
 忽略文件的原则是：
 忽略操作系统自动生成的文件，比如缩略图等；
+
 忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；
+
 忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。
 最后一步就是把.gitignore也提交到Git，就完成了， 或者把.gitignore也添加到.gitignore里面。
 
 
-参考链接：
-https://git-scm.com/docs
-http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html
-https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
 
-
-解决冲突
+### 解决冲突
 dev分支开发，push代码到远程，发起pull request 到master。由于dev与master都修改了相同的文件中相同的行，出现冲突无法自动合并，这时需要手动解决冲突。命令行解决步骤如下：
 
 Step 1: From your project repository, bring in the changes and test.
@@ -110,7 +108,8 @@ git push origin master
 
 https://git-scm.com/book/zh/v2
 
-gitlab解决冲突合并的
+gitlab解决冲突合并的:
+![gitlab]( img/git-cmd-summary_002.png)
 
 补充：在执行第step3之后，修改冲突文件，comit。
 执行step4会报错，如下：
@@ -124,11 +123,12 @@ error: failed to push some refs to 'git@github.com:wangliv/code_generator.git'
 
 
 
-问题
+### 常见问题
 
 git 提交代码后push到远程后发现，对文件的部分修改变成了，删除之前所有内容，新增后面的内容。
 
 解决方案
+
 先撤回push 
 git log 找到之前的commitId
 git reset --soft 回退到上一个commitid
@@ -153,31 +153,45 @@ git config --global core.autcrlf true
 
 
 
-解决不同操作系统下git换行符一致性问题
+### 解决不同操作系统下git换行符一致性问题
+
 一、不同操系统下的换行符
 CR回车 LF换行
+
 Windows/Dos CRLF \r\n
+
 Linux/Unix LF \n
+
 MacOS CR \r
+
 二、解决方法
+
 打开git bash，设置core.autocrlf和core.safecrlf（可不设置），建议设置autocrlf为input，safecrlf为true，同时设置你的Eclipse、IDEA等IDE的换行符为LF\n。
 下面为参数说明，--global表示全局设置
+
 2.1、autocrlf
+``` bash
 #提交时转换为LF，检出时转换为CRLF
 git config --global core.autocrlf true 
 #提交时转换为LF，检出时不转换
 git config --global core.autocrlf input 
 #提交检出均不转换
 git config --global core.autocrlf false
+```
+
 2.2、safecrlf
+
+```bash
 #拒绝提交包含混合换行符的文件
 git config --global core.safecrlf true 
 #允许提交包含混合换行符的文件
 git config --global core.safecrlf false 
 #提交包含混合换行符的文件时给出警告
 git config --global core.safecrlf warn
+```
 
 
-
-
-
+### 参考链接
+https://git-scm.com/docs
+http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html
+https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
