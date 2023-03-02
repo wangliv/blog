@@ -1,5 +1,6 @@
 ---
 title: openssl签发CA证书，用CA根证书签发服务器证书
+date: 2022-12-31 16:21:02
 ---
 > 环境准备：
 Linux 已安装了openssl 
